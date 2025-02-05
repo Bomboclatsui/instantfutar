@@ -36,7 +36,20 @@
     @yield('content')
 </main>
 
-<footer class="container-fluid bg-dark text-white mt-5">
+<style>
+  .footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-color: #222;  /* Sötét háttér, opcionális */
+    color: white;  /* Szöveg színe */
+    padding: 10px 0;
+}
+
+
+</style>
+<footer class="container-fluid bg-dark text-white mt-5 content">
     <div class="container">
         <div class="row">
             <div class="col-12">
