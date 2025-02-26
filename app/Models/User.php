@@ -45,4 +45,23 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+
+
+    public function up()
+{
+    Schema::create('users', function (Blueprint $table) {
+        $table->id();
+        $table->string('name');
+        $table->string('email')->unique();
+        $table->string('phone');
+        $table->date('birthdate');
+        $table->string('birthplace');
+        $table->string('idnumber');
+        $table->string('password');
+        $table->timestamps();
+    });
+}
+
+
 }
