@@ -2,21 +2,13 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
-class rendelesekSeeder extends Seeder
-{
-    /**
-     * Run the database seeds.
-     */
-    public function run(): void
-    {
-        Schema::create('orders', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->enum('status', ['pending', 'in_progress', 'delivered'])->default('pending');
-            $table->timestamps();
-        });
+class OrderSeeder extends Seeder {
+    public function run() {
+        DB::table('orders')->insert([
+            ['user_id' => 2, 'status' => 'pending'],
+        ]);
     }
 }

@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('deliveries', function (Blueprint $table) {
-            $table->id();
+            $table->id('szallitasok_id');
             $table->foreignId('order_id')->constrained('orders')->onDelete('cascade');
             $table->foreignId('courier_id')->constrained('couriers')->onDelete('cascade');
             $table->enum('status', ['assigned', 'picked_up', 'delivered'])->default('assigned');

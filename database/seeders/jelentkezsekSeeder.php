@@ -2,22 +2,13 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
-class jelentkezsekSeeder extends Seeder
-{
-    /**
-     * Run the database seeds.
-     */
-    public function run(): void
-    {
-        Schema::create('applications', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->enum('status', ['pending', 'approved', 'rejected'])->default('pending');
-            $table->text('experience')->nullable();
-            $table->timestamps();
-        });
+class ApplicationSeeder extends Seeder {
+    public function run() {
+        DB::table('applications')->insert([
+            ['user_id' => 3, 'status' => 'approved', 'experience' => '5 years of delivery experience'],
+        ]);
     }
 }

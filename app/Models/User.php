@@ -7,61 +7,19 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
-{
-    /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
+class User extends Authenticatable {
+    use HasFactory;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var list<string>
-     */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+    public $table = "user";
+    public $primarykey = "user_id";
+    protected $fillable = ['name', 'email', 'password', 'role'];
+    protected $hidden = ['password'];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var list<string>
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
-
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
-    protected function casts(): array
-    {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
+    public function applications() {
+        return $this->hasMany(Application::class);
     }
 
-
-
-    public function up()
-{
-    Schema::create('users', function (Blueprint $table) {
-        $table->id();
-        $table->string('name');
-        $table->string('email')->unique();
-        $table->string('phone');
-        $table->date('birthdate');
-        $table->string('birthplace');
-        $table->string('idnumber');
-        $table->string('password');
-        $table->timestamps();
-    });
-}
-
-
+    public function orders() {
+        return $this->hasMany(Order::class);
+    }
 }

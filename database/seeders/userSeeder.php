@@ -2,23 +2,16 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
-class userSeeder extends Seeder
-{
-    /**
-     * Run the database seeds.
-     */
-    public function run(): void
-    {
-        Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->enum('role', ['customer', 'courier', 'admin']);
-            $table->timestamps();
-        });
+class UserSeeder extends Seeder {
+    public function run() {
+        DB::table('users')->insert([
+            ['name' => 'Admin', 'email' => 'admin@example.com', 'password' => Hash::make('password'), 'role' => 'admin'],
+            ['name' => 'Customer', 'email' => 'customer@example.com', 'password' => Hash::make('password'), 'role' => 'customer'],
+            ['name' => 'Courier', 'email' => 'courier@example.com', 'password' => Hash::make('password'), 'role' => 'courier'],
+        ]);
     }
 }
