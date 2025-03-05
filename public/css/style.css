@@ -38,4 +38,9 @@ footer {
 main{
     min-height: 64vh;
 }
-
+#admin{
+    font-size: small;
+    margin-right: 5px;
+    text-align: right;
+    color: gray;
+}

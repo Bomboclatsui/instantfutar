@@ -11,6 +11,7 @@
 <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body >
+
   <nav class="navbar navbar-expand-lg bg-white rounded-5 m-4 p-3">
     <div class="container-fluid">
         <a class="navbar-brand align-items-center" href="{{route('fooldal')}}">
@@ -53,7 +54,8 @@
         <div class="row">
             <div class="col-12">
                 <div class="p-5 text-center">
-                      Instant Futár &copy;
+                      Instant Futár &copy;   
+                    <a href="{{ route('login') }}" id="admin">admin panel</a>
                 </div>
             </div>
         </div>
