@@ -38,9 +38,18 @@
 
 
         <div class="d-flex">
-            <a href="{{ route('login') }}" class="text-dark fw-bold text-decoration-none me-2">Bejelentkezés</a>
-            <a class="text-dark fw-bold text-decoration-none me-2"> | </a>
-            <a href="{{ route('register') }}" class="text-dark fw-bold text-decoration-none ms-2">Regisztráció</a>
+            @if(Auth::check())
+            <!-- Ha be van jelentkezve, csak a Kijelentkezés gomb látszik -->
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <button class="text-dark fw-bold text-decoration-none me-2" type="submit">Kijelentkezés</button>
+            </form>
+             @else
+            <!-- Ha nincs bejelentkezve, mutassuk a Bejelentkezés és Regisztráció gombokat -->
+                <a class="text-dark fw-bold text-decoration-none me-2" href="{{ route('login') }}">Bejelentkezés</a>
+                <a class="text-dark fw-bold text-decoration-none me-2"> | </a>
+                <a class="text-dark fw-bold text-decoration-none me-2" href="{{ route('register') }}">Regisztráció</a>
+            @endif
         </div>
     </div>
 </nav>

@@ -43,4 +43,22 @@ main{
     margin-right: 5px;
     text-align: right;
     color: gray;
+}   
+.select-edit {
+    display: flex;
+    justify-content: left;
 }
+
+select {
+    color: white;
+    width: 100%;
+    max-width: 300px;
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid black;
+    border-radius: 6px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+

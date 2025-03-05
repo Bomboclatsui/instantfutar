@@ -5,16 +5,21 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Vezérlőpult</div>
+                <div class="card-header   bg-secondary text-light">Vezérlőpult</div>
 
-                <div class="card-body">
+                <div class="card-body"  style="text-align: center">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
                     @endif
 
-                    Bejelntkezés sikeres!
+                    <h3><b>Bejelntkezés sikeres!</b></h3>
+                    <p></p>
+                    <div>
+                        <a class="btn btn-warning" href="{{route('fooldal')}}"><b>Vissza a főoldalra</b></a>
+                    </div>
+                    
                 </div>
             </div>
         </div>
