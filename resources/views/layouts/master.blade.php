@@ -24,15 +24,24 @@
                 <li class="nav-item">
                     <a class="nav-link fw-bold text-dark" href="{{route('fooldal')}}">Főoldal</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="#">Csomag feladás</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="#">Csomag nyomkövetés</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="#">Futárok</a>
-                </li>
+
+                @if (Auth::check())
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="{{route('cs_fel')}}">Csomag feladás</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="#">Csomag nyomkövetés</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="#">Futárok</a>
+                    </li>
+                @endif
+
+                @if (Auth::check() && Auth::user()->tipus == 'admin')
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="{{route('admin.felhasznalok')}}">Felhasználok</a> 
+                    </li>
+                @endif
             </ul>
         </div>
 
