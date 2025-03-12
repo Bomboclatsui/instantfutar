@@ -8,6 +8,12 @@ font-family: 'Coco Gothic', sans-serif;
 h1{
     font-size: 1200%;
 }
+.card_t{
+    font-weight: bold;
+    font-size: 200%;
+    padding-bottom: 40px;
+
+}
 body{
     background-image: url("../img/hater.PNG");
     background-repeat: no-repeat;
@@ -61,4 +67,16 @@ select {
     font-weight: bold;
     text-align: center;
 }
-
+.bord{
+    border: 2px solid black;
+    border-radius: 15px;
+    width: 96%;
+    padding: 15px;
+    margin: auto;
+}
+.betu3{
+    font-size: 170%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
+    font-style: italic;
+    padding-bottom: 30px;
+}
