@@ -58,9 +58,13 @@
                                 </button>
 
                                 @if (Route::has('password.request'))
+                                    <a class="btn btn-link text-secondary" href="{{ route('register') }}">
+                                        {{ __('Regisztráció') }}
+                                    </a>
                                     <a class="btn btn-link text-secondary" href="{{ route('password.request') }}">
                                         {{ __('Elfelejtette a jelszavát?') }}
                                     </a>
+                                    
                                 @endif
                             </div>
                         </div>

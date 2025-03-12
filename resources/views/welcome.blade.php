@@ -16,14 +16,14 @@
         </div>
     </div>
     <div class="container mt-5">
-        <h2 class="text-center mb-4">Szolgáltatásaink</h2>
+        <h2 class="text-center mb-4 meret"><b>Szolgáltatásaink</b></h2>
         
         <div class="row mb-4 align-items-center bg-light text-dark bord">
             <div class="col-md-6">
                 <div class="card-body">
                     <h3 class="card-title card_t">Csomag nyomkövetés</h3>
                     <p class="card-text betu3">Kövesse csomagját valós időben, és tudja meg, hogy éppen hol tart a kézbesítés folyamata.</p>
-                    <a href="{{route('register')}}" class="btn btn-primary" onclick="regist(event)">Megnézem</a>
+                    <a href="{{route('login')}}" class="btn btn-primary" >Megnézem</a>
                 </div>
             </div>
             <div class="col-md-6">
@@ -36,7 +36,7 @@
                 <div class="card-body">
                     <h3 class="card-title card_t">Csomag feladás</h3>
                     <p class="card-text betu3">Egyszerűen és gyorsan adhat fel csomagot online, és választhat a különböző szállítási lehetőségek közül.</p>
-                    <a href="{{route('register')}}" class="btn btn-primary" onclick="regist(event)">Megnézem</a>
+                    <a href="{{route('login')}}" class="btn btn-primary">Megnézem</a>
                 </div>
             </div>
             <div class="col-md-6">
@@ -49,7 +49,7 @@
                 <div class="card-body">
                     <h3 class="card-title card_t">Futárok listája</h3>
                     <p class="card-text betu3">Ismerje meg a futárokat, akik gondoskodnak a csomagok kézbesítéséről, és válassza ki az Ön számára legmegfelelőbbet.</p>
-                    <a href="{{route('register')}}" class="btn btn-primary" onclick="regist(event)">Megnézem</a>
+                    <a href="{{route('login')}}" class="btn btn-primary" >Megnézem</a>
                 </div>
             </div>
             <div class="col-md-6">
@@ -58,5 +58,4 @@
         </div>
     </div>
 
-    <script src="{{asset('js/java.js')}}">regist</script>
 @endsection
