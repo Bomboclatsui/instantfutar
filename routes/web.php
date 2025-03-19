@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\AdminMiddleware;
+use App\Http\Controllers\FelhasznaloController;
 
 Route::get('/', function () {
     return view('welcome');
