@@ -11,4 +11,18 @@ class FelhasznaloController extends Controller
         $lista = User::all();
         return view('admin.felhasznalok',["lista" => $lista]);
     }
+    public function modosit(Request $request)
+    {
+        $user = User::find($request->id);
+        
+        if (!$user) {
+            return redirect()->back()->with('error', 'Felhasználó nem található!');
+        }
+        
+        $user->tipus = ($user->tipus === 'admin') ? 'user' : 'admin';
+        $user->save();
+
+        return redirect()->back()->with('success', 'Jogosultság módosítva!');
+    }
+    
 }
