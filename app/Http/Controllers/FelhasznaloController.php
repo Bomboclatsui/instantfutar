@@ -24,5 +24,12 @@ class FelhasznaloController extends Controller
 
         return redirect()->back()->with('success', 'Jogosultság módosítva!');
     }
+    public function torol(Request $req)
+    {
+        $felhasznalo = User::findOrFail($req->id);
+        $felhasznalo->delete();
+
+        return redirect()->back()->with('success', 'Felhasználó sikeresen törölve!');
+    }
     
 }
