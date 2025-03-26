@@ -23,6 +23,9 @@ Route::middleware([AdminMiddleware::class])->group(function(){
     Route::get('/admin/felhasznalok',[FelhasznaloController::class,'lista'])->middleware('auth')->name('admin.felhasznalok');
 });
 
-Route::post('/felhasznalok/torol/{id}', [FelhasznaloController::class, 'torol'])->name('felhasznalo.torol');
+
+
+Route::get('/felhasznalok/torol/{id}', [FelhasznaloController::class, 'confirmDelete'])->name('confirmFelhasznaloDelete');
+Route::post('/felhasznalok/torol', [FelhasznaloController::class,'destory'])->name('felhasznaloDestory');
 
 
