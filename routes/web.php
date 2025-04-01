@@ -24,8 +24,9 @@ Route::middleware([AdminMiddleware::class])->group(function(){
 });
 
 
-
+Route::get('/felhasznalok/modositas/{id}',[FelhasznaloController::class,'edit'])->name('felhasznaloEdit');
+Route::post('/felhasznalok/modositas/{id}',[FelhasznaloController::class,'update']);
 Route::get('/felhasznalok/torol/{id}', [FelhasznaloController::class, 'confirmDelete'])->name('confirmFelhasznaloDelete');
-Route::post('/felhasznalok/torol', [FelhasznaloController::class,'destory'])->name('felhasznaloDestory');
+Route::post('/felhasznalok/torol', [FelhasznaloController::class,'destroy'])->name('felhasznaloDestory');
 
 

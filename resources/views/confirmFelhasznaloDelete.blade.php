@@ -16,8 +16,8 @@
     </div>
     <div class="modal-footer">
         @if ($felhasznalo)
-            <button type="button" class="btn btn-danger">Nem</button>
-            <button type="button" class="btn btn-succes" onclick="felhasznaloDestory('{{route('felhasznaloDestory')}}');">Igen</button>
+            <button type="button" class="btn btn-dark"  data-bs-dismiss="modal">Nem</button>
+            <button type="button" class="btn btn-danger" onclick="felhasznaloDestory('{{route('felhasznaloDestory')}}');">Igen</button>
         @else
             <button type="button" class="btn btn-dark" data-bs-dismiss="modal">OK</button>
         @endif

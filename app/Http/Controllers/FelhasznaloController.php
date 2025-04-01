@@ -24,13 +24,13 @@ class FelhasznaloController extends Controller
 
         return redirect()->back()->with('success', 'Jogosultság módosítva!');
     }
-    /* public function torol(Request $req)
+    public function torol(Request $req)
     {
         $felhasznalo = User::findOrFail($req->id);
         $felhasznalo->delete();
 
         return redirect()->back()->with('success', 'Felhasználó sikeresen törölve!');
-    }*/
+    }
     public function confirmDelete($id){
         $data['error'] = false;
         $data['id'] = $id;
@@ -48,4 +48,20 @@ class FelhasznaloController extends Controller
 
     }
     
+
+    public function edit(string $id){
+        $felhasznalo = User::find($id);
+        if(!$felhasznalo){
+            return redirect()->route('felhasznalok');
+        }
+
+        return view('felhasznaloForm',['felhasznalo' => $felhasznalo]);
+    }
+
+    public function update(string $id, Request $req){
+        $auto = User::find($id);
+        if(!$felhasznalo){
+            return redirect()->route('felhasznalok');
+        }
+    }
 }

@@ -26,7 +26,7 @@ async function felhasznaloDestory(url){
         }
         const result = await response.json();
         $("#confirmationModal").modal('hide');
-        $("#auto_"+result.id).remove();
+        $("#user_"+result.id).remove();
     }catch(error){
         console.log("Hiba történt a hálózaton",error);
     }
