@@ -11,6 +11,7 @@
         <!-- Latest compiled and minified CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('css/style_admin.css') }}">
+        <script src="{{asset('js/script.js')}}"></script>
         <!-- Latest compiled JavaScript -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     </head>
@@ -68,7 +69,7 @@
                                         </svg></a>
                                     </form>   
 
-                                        <button type="button" class="btn btn-danger btn-sm" onclick="showConfimr('{{route('confirmFelhasznaloDelete',$felhasznalo->id)}}')">
+                                        <button type="button" class="btn btn-danger btn-sm" onclick="showConfirm('{{route('confirmFelhasznaloDelete',$felhasznalo->id)}}')">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                 fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
                                                 <path

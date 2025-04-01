@@ -6,7 +6,7 @@
     <div class="modal-body" id="modalBody">
         @if ($felhasznalo)
             Biztos törölni szeretnéd a(z) <b class="text-danger">{{$felhasznalo->name}}</b> felhasználót?
-            <form method="POST" id="">
+            <form method="POST" id="destroyFelhasznaloFrm">
                 @csrf
                 <input type="hidden" name="id" value="{{$felhasznalo->id}}">
             </form>

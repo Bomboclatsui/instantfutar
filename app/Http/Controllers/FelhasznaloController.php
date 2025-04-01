@@ -24,12 +24,28 @@ class FelhasznaloController extends Controller
 
         return redirect()->back()->with('success', 'Jogosultság módosítva!');
     }
-    public function torol(Request $req)
+    /* public function torol(Request $req)
     {
         $felhasznalo = User::findOrFail($req->id);
         $felhasznalo->delete();
 
         return redirect()->back()->with('success', 'Felhasználó sikeresen törölve!');
+    }*/
+    public function confirmDelete($id){
+        $data['error'] = false;
+        $data['id'] = $id;
+        $felhasznalo = User::find($id);
+        $data['content'] = view('confirmFelhasznaloDelete',['felhasznalo' => $felhasznalo])->render();
+        return response()->json($data,200,['Content-Type' => 'application/json']);
+    }
+
+    public function destroy(Request $req){
+        $data['error'] = false;
+        $data['id'] = $req->id;
+        $felhasznalo = User::find($req->id);
+        $felhasznalo->delete();
+        return response()->json($data,200,['Content-type' => 'application/json']);
+
     }
     
 }
