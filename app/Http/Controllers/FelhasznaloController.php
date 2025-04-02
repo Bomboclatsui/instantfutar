@@ -60,9 +60,22 @@ class FelhasznaloController extends Controller
 
     public function update(string $id, Request $req){
         $felhasznalo = User::find($id);
+    
         if(!$felhasznalo){
             return redirect()->route('felhasznalok');
         }
-        
+    
+        // Validáció
+        $req->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email,'.$id,
+        ]);
+    
+        // Frissítés
+        $felhasznalo->name = $req->input('name');
+        $felhasznalo->email = $req->input('email');
+        $felhasznalo->save();
+    
+        return redirect()->route('felhasznaloEdit', $id)->with('felhasznaloModositasKesz', 'A felhasználó sikeresen módosítva!');
     }
 }

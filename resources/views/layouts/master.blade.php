@@ -36,6 +36,16 @@
                     <li class="nav-item">
                         <a class="nav-link text-dark" href="#">Futárok</a>
                     </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-dark" href="#" id="karrierDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Karrier
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="karrierDropdown">
+                            <li><a class="dropdown-item" href="{{route('jelentkezes')}}">Jelentkezés</a></li>
+                            <li><a class="dropdown-item" href="#">Munkáról</a></li>
+                            <li><a class="dropdown-item" href="#">Állás lehetőségek</a></li>
+                        </ul>
+                    </li>   
                 @endif
 
                 @if (Auth::check() && Auth::user()->tipus == 'admin')
@@ -43,6 +53,7 @@
                         <a class="nav-link text-dark" href="{{route('admin.felhasznalok')}}" target="_blank">Felhasználok</a> 
                     </li>
                 @endif
+                
             </ul>
         </div>
 
