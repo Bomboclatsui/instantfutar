@@ -59,9 +59,10 @@ class FelhasznaloController extends Controller
     }
 
     public function update(string $id, Request $req){
-        $auto = User::find($id);
+        $felhasznalo = User::find($id);
         if(!$felhasznalo){
             return redirect()->route('felhasznalok');
         }
+        
     }
 }
