@@ -17,6 +17,10 @@ Route::get('/jelentkezes', function () {
     return view('jelentkezes');
 })->name('jelentkezes');
 
+Route::get('/futarokCard', function () {
+    return view('futarokCard');
+})->name('futarokCard');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
