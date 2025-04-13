@@ -52,12 +52,30 @@
                     <li class="nav-item">
                         <a class="nav-link text-dark" href="{{route('admin.felhasznalok')}}" target="_blank">Felhasználok</a> 
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="{{ route('admin.futarok') }}">Futár lista</a>
+                    </li>
                 @endif
                 
             </ul>
         </div>
 
-
+        @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+    
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul class="mb-0">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    
         <div class="d-flex">
             @if(Auth::check())
             <!-- Ha be van jelentkezve, csak a Kijelentkezés gomb látszik -->

@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Controllers\FelhasznaloController;
-
+use App\Http\Controllers\FutarController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -24,13 +24,21 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::middleware([AdminMiddleware::class])->group(function(){
     Route::get('/admin/felhasznalok',[FelhasznaloController::class,'lista'])->middleware('auth')->name('admin.felhasznalok');
 });
+Route::get('/admin/futarok', [FutarController::class, 'futarLista'])->name('admin.futarok');
+
 
 Route::get('/felhasznalok/uj',[FelhasznaloController::class,'create'])->name('ujfelhasznalo');
 Route::post('/felhasznalok/uj',[FelhasznaloController::class,'store']);
-Route::get('/felhasznalok/modositas/{id}',[FelhasznaloController::class,'edit'])->name('felhasznaloEdit');
+Route::get('/felhasznalok/modos itas/{id}',[FelhasznaloController::class,'edit'])->name('felhasznaloEdit');
 Route::post('/felhasznalok/modositas/{id}',[FelhasznaloController::class,'update']);
 Route::post('/felhasznalo/modosit', [FelhasznaloController::class, 'modosit'])->name('felhasznalo.modosit');
 Route::get('/felhasznalok/torol/{id}', [FelhasznaloController::class, 'confirmDelete'])->name('confirmFelhasznaloDelete');
 Route::post('/felhasznalok/torol', [FelhasznaloController::class,'destroy'])->name('felhasznaloDestory');
 
+Route::post('/futarok/uj',[FutarController::class,'store'])->name('ujFutar');
 
+Route::get('/admin/futarok', [FutarController::class, 'lista'])->name('admin.futarok');
+Route::get('/admin/futarok/edit/{id}', [FutarController::class, 'edit'])->name('admin.futarok.edit');
+Route::post('/admin/futarok/edit/{id}', [FutarController::class, 'update'])->name('admin.futarok.update');
+Route::get('/admin/futarok/delete/{id}', [FutarController::class, 'confirmDelete'])->name('admin.futarok.delete');
+Route::post('/admin/futarok/delete', [FutarController::class, 'destroy'])->name('admin.futarok.destroy');
