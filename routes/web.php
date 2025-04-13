@@ -23,8 +23,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::middleware([AdminMiddleware::class])->group(function(){
     Route::get('/admin/felhasznalok',[FelhasznaloController::class,'lista'])->middleware('auth')->name('admin.felhasznalok');
+    Route::get('/admin/futarok', [FutarController::class, 'futarLista'])->middleware('auth')->name('admin.futarok');
 });
-Route::get('/admin/futarok', [FutarController::class, 'futarLista'])->name('admin.futarok');
+
 
 
 Route::get('/felhasznalok/uj',[FelhasznaloController::class,'create'])->name('ujfelhasznalo');
@@ -40,5 +41,5 @@ Route::post('/futarok/uj',[FutarController::class,'store'])->name('ujFutar');
 Route::get('/admin/futarok', [FutarController::class, 'lista'])->name('admin.futarok');
 Route::get('/admin/futarok/edit/{id}', [FutarController::class, 'edit'])->name('admin.futarok.edit');
 Route::post('/admin/futarok/edit/{id}', [FutarController::class, 'update'])->name('admin.futarok.update');
-Route::get('/admin/futarok/delete/{id}', [FutarController::class, 'confirmDelete'])->name('admin.futarok.delete');
-Route::post('/admin/futarok/delete', [FutarController::class, 'destroy'])->name('admin.futarok.destroy');
+Route::get('/admin/futarok/delete/{id}', [FutarController::class, 'confirmDelete'])->name('confirmFutarDelete');
+Route::post('/admin/futarok/delete', [FutarController::class, 'destroy'])->name('futarokDestory');

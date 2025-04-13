@@ -14,9 +14,10 @@ async function showConfirm(url){
     }
 }
 
-async function felhasznaloDestory(url){
+
+async function futarokDestory(url){
     try{
-        const formData = new FormData(document.getElementById('destroyFelhasznaloFrm'));
+        const formData = new FormData(document.getElementById('destroyFutarFrm'));
         const response = await fetch(url,{
             method:'POST',
             body: formData
@@ -26,9 +27,8 @@ async function felhasznaloDestory(url){
         }
         const result = await response.json();
         $("#confirmationModal").modal('hide');
-        $("#user_"+result.id).remove();
+        $("#futar_" + result.id).remove();
     }catch(error){
         console.log("Hiba történt a hálózaton",error);
     }
 }
-

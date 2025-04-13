@@ -33,7 +33,7 @@ class FutarController extends Controller
     public function lista()
     {
         $lista = Futar::all(); 
-        return view('admin.futarok', ['lista' => $lista]);
+        return view('admin.futar', ['lista' => $lista]);
     }
 
     public function edit($id)
@@ -68,23 +68,27 @@ class FutarController extends Controller
         return redirect()->route('futarEdit', $id)->with('success', 'Futár sikeresen módosítva!');
     }
 
-    public function confirmDelete($id)
+    public function delete(Request $req)
     {
-        $futar = Futar::find($id);
-        if (!$futar) {
-            return response()->json(['error' => true, 'message' => 'Futár nem található!'], 404);
-        }
+        $futar = Futar::findOrFail($req->id);
+        $futar->delete();
 
-        $content = view('confirmFutarDelete', ['futar' => $futar])->render();
-        return response()->json(['error' => false, 'id' => $id, 'content' => $content], 200);
+        return redirect()->back()->with('success', 'Futár sikeresen törölve!');
+    }
+    public function confirmDelete($id){
+        $data['error'] = false;
+        $data['id'] = $id;
+        $futar = Futar::find($id);
+        $data['content'] = view('confirmFutarDelete',['futar' => $futar])->render();
+        return response()->json($data,200,['Content-Type' => 'application/json']);
     }
 
-    public function destroy(Request $req)
-    {
+    public function destroy(Request $req){
+        $data['error'] = false;
+        $data['id'] = $req->id;
         $futar = Futar::find($req->id);
-        if ($futar) {
-            $futar->delete();
-        }
-        return response()->json(['error' => false, 'id' => $req->id], 200);
+        $futar->delete();
+        return response()->json($data,200,['Content-type' => 'application/json']);
+
     }
 }

@@ -50,10 +50,10 @@
 
                 @if (Auth::check() && Auth::user()->tipus == 'admin')
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="{{route('admin.felhasznalok')}}" target="_blank">Felhasználok</a> 
+                        <a class="nav-link text-dark" href="{{route('admin.felhasznalok')}}">Felhasználok</a> 
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="{{ route('admin.futarok') }}">Futár lista</a>
+                        <a class="nav-link text-dark" href="{{route('admin.futarok')}}">Futár lista</a>
                     </li>
                 @endif
                 
