@@ -9,7 +9,7 @@ class FelhasznaloController extends Controller
 {
     public function lista(){
         $lista = User::all();
-        return view('admin.felhasznalok',["lista" => $lista]);
+        return view('admin.felhasznalok',['lista' => $lista]);
     }
     public function modosit(Request $request)
     {
@@ -28,7 +28,6 @@ class FelhasznaloController extends Controller
     {
         $felhasznalo = User::findOrFail($req->id);
         $felhasznalo->delete();
-
         return redirect()->back()->with('success', 'Felhasználó sikeresen törölve!');
     }
     public function confirmDelete($id){
@@ -65,13 +64,11 @@ class FelhasznaloController extends Controller
             return redirect()->route('felhasznalok');
         }
     
-        // Validáció
         $req->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email,'.$id,
         ]);
     
-        // Frissítés
         $felhasznalo->name = $req->input('name');
         $felhasznalo->email = $req->input('email');
         $felhasznalo->save();

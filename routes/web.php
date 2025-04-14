@@ -42,6 +42,7 @@ Route::post('/felhasznalok/torol', [FelhasznaloController::class,'destroy'])->na
 
 Route::post('/futarok/uj',[FutarController::class,'store'])->name('ujFutar');
 
+
 Route::get('/admin/futarok', [FutarController::class, 'lista'])->name('admin.futarok');
 Route::get('/admin/futarok/edit/{id}', [FutarController::class, 'edit'])->name('admin.futarok.edit');
 Route::post('/admin/futarok/edit/{id}', [FutarController::class, 'update'])->name('admin.futarok.update');

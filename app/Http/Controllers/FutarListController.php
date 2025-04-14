@@ -7,7 +7,7 @@ use App\Models\Futar;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
-class FutarController extends Controller
+class FutarListController extends Controller
 {
     public function store(Request $request)
     {
@@ -30,11 +30,13 @@ class FutarController extends Controller
         return redirect()->back()->with('success', 'Sikeresen jelentkeztél futárnak!');
     }
 
-    public function lista()
+    public function list()
     {
-        $lista = Futar::all();
-        return view('futarok', ['lista' => $lista]);
+        $list = Futar::all();
+        return view('futarokCard', ['lista' => $list]);
     }
+
+
 
     public function edit($id)
     {
