@@ -18,8 +18,7 @@
                             <p class="card-text"><strong>Jármű:</strong> {{ ucfirst($futar->vehicle) }}</p>
     
                             <div class="d-flex justify-content-between">
-                                <a href="{{ route('admin.futarok.edit', $futar->id) }}" class="btn btn-sm btn-primary">Szerkesztés</a>
-                                <button class="btn btn-sm btn-danger" onclick="showConfirm('{{ route('confirmFutarDelete', $futar->id) }}')">Törlés</button>
+                                <button class="btn btn-sm btn-warning" onclick="">Részletek</button>
                             </div>
                         </div>
                     </div>

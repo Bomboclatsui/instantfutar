@@ -33,7 +33,12 @@ class FutarController extends Controller
     public function lista()
     {
         $lista = Futar::all();
-        return view('futarok', ['lista' => $lista]);
+        return view('futarokCard', ['lista' => $lista]);
+    }
+    public function futarLista()
+    {
+        $lista = Futar::all();
+        return view('admin.futar', ['lista' => $lista]);
     }
 
     public function edit($id)

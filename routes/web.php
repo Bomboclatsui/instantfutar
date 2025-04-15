@@ -17,9 +17,7 @@ Route::get('/jelentkezes', function () {
     return view('jelentkezes');
 })->name('jelentkezes');
 
-Route::get('/futarokCard', function () {
-    return view('futarokCard');
-})->name('futarokCard');
+Route::get('/futarokCard', [FutarController::class, 'lista'])->name('futarokCard');
 
 Auth::routes();
 
@@ -34,7 +32,7 @@ Route::middleware([AdminMiddleware::class])->group(function(){
 
 Route::get('/felhasznalok/uj',[FelhasznaloController::class,'create'])->name('ujfelhasznalo');
 Route::post('/felhasznalok/uj',[FelhasznaloController::class,'store']);
-Route::get('/felhasznalok/modos itas/{id}',[FelhasznaloController::class,'edit'])->name('felhasznaloEdit');
+Route::get('/felhasznalok/modositas/{id}',[FelhasznaloController::class,'edit'])->name('felhasznaloEdit');
 Route::post('/felhasznalok/modositas/{id}',[FelhasznaloController::class,'update']);
 Route::post('/felhasznalo/modosit', [FelhasznaloController::class, 'modosit'])->name('felhasznalo.modosit');
 Route::get('/felhasznalok/torol/{id}', [FelhasznaloController::class, 'confirmDelete'])->name('confirmFelhasznaloDelete');
@@ -43,8 +41,8 @@ Route::post('/felhasznalok/torol', [FelhasznaloController::class,'destroy'])->na
 Route::post('/futarok/uj',[FutarController::class,'store'])->name('ujFutar');
 
 
-Route::get('/admin/futarok', [FutarController::class, 'lista'])->name('admin.futarok');
-Route::get('/admin/futarok/edit/{id}', [FutarController::class, 'edit'])->name('admin.futarok.edit');
-Route::post('/admin/futarok/edit/{id}', [FutarController::class, 'update'])->name('admin.futarok.update');
+
+Route::get('/admin/futarok/edit/{id}', [FutarController::class, 'edit'])->name('futarEdit');
+Route::post('/admin/futarok/edit/{id}', [FutarController::class, 'update'])->name('admin.futar.update');
 Route::get('/admin/futarok/delete/{id}', [FutarController::class, 'confirmDelete'])->name('confirmFutarDelete');
 Route::post('/admin/futarok/delete', [FutarController::class, 'destroy'])->name('futarokDestory');
