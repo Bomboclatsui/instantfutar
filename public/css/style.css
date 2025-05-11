@@ -1,87 +1,117 @@
 @import url('https://fonts.cdnfonts.com/css/catchy-mager');
-.betu{
-font-family: 'Coco Gothic', sans-serif;
-}
-.betu2{
-    font-family: Times, "Times New Roman", Georgia, serif;
-}
-h1{
-    font-size: 1200%;
-}
-.card_t{
-    font-weight: bold;
-    font-size: 200%;
-    padding-bottom: 40px;
 
+.betu {
+    font-family: 'Coco Gothic', sans-serif;
+    font-size: clamp(1.5rem, 4vw, 2.5rem); 
 }
-body{
+
+.betu2 {
+    font-family: Times, "Times New Roman", Georgia, serif;
+    font-size: clamp(2.5rem, 8vw, 6rem);
+}
+
+.betu3 {
+    font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
+    font-style: italic;
+    padding-bottom: 30px;
+}
+
+h1 {
+    font-size: clamp(2.5rem, 8vw, 6rem); 
+}
+
+h2, .meret {
+    font-size: clamp(2rem, 6vw, 5rem);
+}
+
+h3 {
+    font-size: clamp(1rem, 4vw, 2rem);
+}
+
+.card_t {
+    font-weight: bold;
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    padding-bottom: 40px;
+}
+
+body {
     background-image: url("../img/hater.PNG");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
     color: white;
-
+    
 }
+
 .container2 {
     display: flex;
     justify-content: center;  
     align-items: center; 
-    height: 100vh;  
-    text-align: center; 
+    min-height: 70vh; /* jobb mint fix 100vh mobilon */
+    text-align: center;
 }
-img{
-    height: 50px;
+
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 footer {
-    height: 150px; 
-    line-height: 50px; 
+    height: auto;
+    padding: 20px 0;
+    line-height: normal;
     text-align: center;
     width: 100%;
-    position: relative; 
+    position: relative;
     bottom: 0;
+    background-color: #000; /* sötét háttér */
 }
-main{
+
+main {
     min-height: 64vh;
 }
-#admin{
+
+#admin {
     font-size: small;
     margin-right: 5px;
     text-align: right;
     color: gray;
 }   
+
 .select-edit {
     display: flex;
     justify-content: left;
 }
 
 select {
-    color: white;
     width: 100%;
     max-width: 300px;
     padding: 12px;
     font-size: 16px;
     border: 2px solid black;
     border-radius: 6px;
-    color: white;
     font-weight: bold;
     text-align: center;
+    background-color: transparent;
+    color: white;
 }
+
 .bord{
     border: 2px solid black;
     border-radius: 15px;
     width: 96%;
     padding: 15px;
     margin: auto;
-}
-.betu3{
-    font-size: 170%;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
-    font-style: italic;
-    padding-bottom: 30px;
-}
-.meret{
-    font-size: 300%;
+    background-color: white;
 }
 
+
+.navbar-collapse {
+    display: none; 
+}
+
+.navbar-collapse.show {
+    display: block; 
+}
 

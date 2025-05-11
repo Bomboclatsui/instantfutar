@@ -10,7 +10,7 @@
             <div class="alert alert-success">{{ session('success') }}</div>
         @endif
 
-        <form method="POST" action="{{ route('futarUpdate', $futar->id) }}">
+        <form method="POST" action="{{ route('futarEdit', $futar->id) }}">
             @csrf
 
             <div class="mb-3">

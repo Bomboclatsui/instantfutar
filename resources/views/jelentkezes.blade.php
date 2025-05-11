@@ -3,7 +3,7 @@
 @section('content')
 
 
-<div class="d-flex justify-content-center mt-5 mb-5">
+<div class="d-flex justify-content-center mt-5 mb-5 text-dark">
     <div class="w-100" style="max-width: 500px;">
         <div class="p-4 bord">
             <h2 class="text-center betu3">Futár jelentkezési űrlap</h2>

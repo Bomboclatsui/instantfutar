@@ -3,14 +3,14 @@
 @section('content')
 
 <div class="container mt-5">
-    <div class="col-md-6 mx-auto p-4 border rounded">
+    <div class="col-md-6 mx-auto p-4 border rounded bg-white">
         <h2 class="text-center">Futár adatainak módosítása</h2>
 
         @if(session('success'))
             <div class="alert alert-success">{{ session('success') }}</div>
         @endif
 
-        <form method="POST" action="{{ route('futarUpdate', $futar->id) }}">
+        <form method="POST" action="{{ route('futarEdit', $futar->id) }}">
             @csrf
 
             <div class="mb-3">

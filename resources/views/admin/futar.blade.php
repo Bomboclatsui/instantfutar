@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="{{asset('css/style_admin.css')}}">
 <script src="{{ asset('js/futarScript.js') }}"></script>
 
-    <div class="container my-4">
+    <div class="container my-4 table-responsive-sm">
         <h1 class="text-center text-light mb-4">Futárok lista</h1>
 
         @if (session('success'))

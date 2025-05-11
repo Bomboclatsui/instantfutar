@@ -1,25 +1,14 @@
 @extends('layouts.master')
 @section('title', 'Felhasznalok')
 @section('content')
-    <!DOCTYPE html>
-    <html lang="hu">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Felhasználok Adatbázis Táblázat</title>
-        <!-- Latest compiled and minified CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="{{ asset('css/style_admin.css') }}">
-        <script src="{{ asset('js/script.js') }}"></script>
-        <!-- Latest compiled JavaScript -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    </head>
+    <link rel="stylesheet" href="{{ asset('css/style_admin.css') }}">
+    <script src="{{ asset('js/script.js') }}"></script>
 
     <body>
 
-        <div class="container my-4">
-            <h2 class="text-center text-light mb-4">Felhasznalói Lista</h2>
+        <div class="container my-4 table-responsive-sm">
+            <h1 class="text-center text-light mb-4">Felhasznalói Lista</h1>
             @if (session('success'))
                 <div class="alert alert-success">
                     {{ session('success') }}
@@ -60,7 +49,7 @@
                                     </label>
                                 </form>
 
-                                <a href="{{ route('felhasznaloEdit', $felhasznalo->id) }}" class="btn btn-warning"><svg
+                                <a href="{{ route('felhasznaloEdit', $felhasznalo->id) }}" class="btn btn-warning btn-sm"><svg
                                         xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                         class="bi bi-pencil-fill" viewBox="0 0 16 16">
                                         <path
